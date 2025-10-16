@@ -1,0 +1,40 @@
+{
+  "name": "internship-demonstration",
+  "version": "1.0.0",
+  "description": "Script commands from CICD: 1.\"start\": \"dotenv -e .env.development -- node ./src/server.js\" 2.\"dev\": \"dotenv -e .env.development -- nodemon ./src/server.js\" 3.\"test\": \"dotenv -e .env.test -- playwright test --config=configs/playwright.config.js\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "dotenv -e .env.test -- nodemon src/index.js",
+    "postinstall": "npx prisma generate",
+    "migration:dev": "dotenv -e .env.development -- npx prisma migrate dev",
+    "migration:localdev": "dotenv -e .env.localdev -- npx prisma migrate dev",
+    "migration:reset": "dotenv -e .env.development -- npx prisma migrate reset",
+    "migration:resetlocaldev": "dotenv -e .env.localdev -- npx prisma migrate reset",
+    "check-cloudinary": "dotenv -e .env.development -- node ./src/checkCloudinary.js",
+    "localdev_dev": "dotenv -e .env.localdev -- nodemon ./src/server.js",
+    "lint": "eslint -c configs/eslint.config.mjs \"./src/**/*.{js,html}\"",
+    "test-trace": "npm test -- --reporter=html --trace on"
+  },
+  "author": "Syed Saud Ali",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "dotenv-cli": "^10.0.0",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "kill-port": "^2.0.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.15.2",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.17.1"
+  }
+}
